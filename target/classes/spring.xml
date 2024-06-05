@@ -1,0 +1,35 @@
+
+<!-- <?xml version="1.0" encoding="UTF-8"?> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <bean id="dev" class="com.desh.Dev" autowire="byType">
+        <!-- property uses the setter to define the value -->
+        <!-- <property name="age" value="12" /> -->
+
+        <!-- don't need both index and name could only use one  -->
+        <!-- if constructor have only one argument then didn't need index or name both -->
+        <constructor-arg index="0" name="age" value="14" />
+        <!-- <constructor-arg index="1" name="laptop" ref="lapId" /> -->
+
+        <property name="comp" ref="desktopId" />
+    </bean>
+
+    <!-- will get multiple object in the Container if it is mentioned here multiple time -->
+    <bean id="dev1" class="com.desh.Dev">
+    </bean>
+
+
+    <bean id="lapId" class="com.desh.Laptop" primary="true">
+    </bean>
+
+    <bean id="lap" class="com.desh.Laptop">
+    </bean>
+
+    <bean id="desktopId" class="com.desh.Desktop">
+    </bean>
+
+</beans>
